@@ -17,9 +17,9 @@ var rev = function(nums, i, j){
 
 
 var rotate = function(nums, k) {
- k%= nums.length
+
+    k%= nums.length
     
-  // if(nums.length=1 || nums.length ==2)return rev(nums,0,nums.length-1)
     rev(nums,0,nums.length-1)
     rev(nums,0,k-1)
     rev(nums,k,nums.length-1)
