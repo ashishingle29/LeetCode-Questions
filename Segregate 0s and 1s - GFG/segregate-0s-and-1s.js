@@ -55,26 +55,48 @@ class Solution {
 
     segregate0and1(arr,n){
         
-        //Method One
+        //Method One Sort
         // arr.sort((a,b)=>a-b)
         
-        // Second Method
-        let zero =0;
+        // Second Method Count 
+        // let zero =0;
         
-        for(let i=0; i<arr.length; i++){
-            if(arr[i]==0){
-                zero++
+        // for(let i=0; i<arr.length; i++){
+        //     if(arr[i]==0){
+        //         zero++
+        //     }
+        // }
+        
+        // for(let i=0; i<zero; i++){
+        //     arr[i]=0
+        // }
+        
+        // for(let i=zero; i<arr.length; i++){
+        //     arr[i]=1
+        // }
+        
+        //third Method swap
+        let l=0
+        let r=n-1
+        
+        while(l<r){
+            if(arr[l]==0){
+                l++
+                continue;
             }
+            if(arr[r]==1){
+                r--
+                continue;
+            }
+            
+            //swap
+            arr[l]= arr[l] + arr[r]
+            arr[r]= arr[l] - arr[r]
+            arr[l]= arr[l] - arr[r]
+            
+            l++;
+            r--;
         }
-        
-        for(let i=0; i<zero; i++){
-            arr[i]=0
-        }
-        
-        for(let i=zero; i<arr.length; i++){
-            arr[i]=1
-        }
-        
-        
+       
     }
 }
