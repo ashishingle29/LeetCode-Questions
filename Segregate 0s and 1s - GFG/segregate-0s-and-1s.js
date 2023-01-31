@@ -56,7 +56,25 @@ class Solution {
     segregate0and1(arr,n){
         
         //Method One
-        arr.sort((a,b)=>a-b)
+        // arr.sort((a,b)=>a-b)
+        
+        // Second Method
+        let zero =0;
+        
+        for(let i=0; i<arr.length; i++){
+            if(arr[i]==0){
+                zero++
+            }
+        }
+        
+        for(let i=0; i<zero; i++){
+            arr[i]=0
+        }
+        
+        for(let i=zero; i<arr.length; i++){
+            arr[i]=1
+        }
+        
         
     }
 }
