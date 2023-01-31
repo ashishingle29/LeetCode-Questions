@@ -76,19 +76,42 @@ class Solution {
         // }
         
         //third Method swap
+        // let l=0
+        // let r=n-1
+        
+        // while(l<r){
+        //     if(arr[l]==0){
+        //         l++
+        //         continue;
+        //     }
+        //     if(arr[r]==1){
+        //         r--
+        //         continue;
+        //     }
+            
+        //     //swap
+        //     arr[l]= arr[l] + arr[r]
+        //     arr[r]= arr[l] - arr[r]
+        //     arr[l]= arr[l] - arr[r]
+            
+        //     l++;
+        //     r--;
+        // }
+        
+        //forth Method swap
+        
         let l=0
         let r=n-1
         
         while(l<r){
-            if(arr[l]==0){
-                l++
-                continue;
+            while(arr[l]==0 &&l<r){
+                l++;
             }
-            if(arr[r]==1){
-                r--
-                continue;
+            while(arr[r]==1 && l<r){
+                r--;
             }
             
+            if(l<r){
             //swap
             arr[l]= arr[l] + arr[r]
             arr[r]= arr[l] - arr[r]
@@ -96,6 +119,7 @@ class Solution {
             
             l++;
             r--;
+            }
         }
        
     }
