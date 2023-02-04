@@ -5,83 +5,35 @@
  */
 var isIsomorphic = function(s, t) {
   
-    if(s=="bbbaaaba" && t=="aaabbbba"){
-        return false;
-    }else if(s=="abba" && t=="abab"){
-        return false
-    }else if(s=="aba" && t=="aab"){
-        return false
-    }
-    let sl = s.length
-    let tl = t.length
-    if(sl==tl){
-    let mps = new Map()
-    let mpt = new Map()
-    
-     for(let i=0; i<=s.length-1; i++){
-        let x=s[i]
-        let y=t[i]
-        
-        if(mps.has(x)){
-            mps.set(x,mps.get(x)+1)
-        }else{
-            mps.set(x,1)
-        }
-        
-        if(mpt.has(y)){
-            mpt.set(y,mpt.get(y)+1)
-        }else{
-            mpt.set(y,1)
-        }    
-    }
-    
-//         for(let i=0; i<mps.length; i++){
-//             console.log(mps[i])
-//             let xs = mps.get(mps[i])
-//             let yt = mpt.get(i)
-            
-    
-//         }
-        console.log(mps,mpt)
-        
-        let arrs = []
-        let arrt = []
-    mps.forEach((values,keys)=>{
-        arrs.push(`${values}`)
-    })
-     
-    mpt.forEach((valuet,keyt)=>{
-       arrt.push(`${valuet}`)
-    })
-        
-        let anss=0
-     for(let i=0; i<arrs.length; i++){
-         if(arrs[i]==arrt[i]){
-             anss++
-         }
-     }
-     
-    if(anss==arrs.length){
-        return true
-    }else{
-        return false
-    }
-    
-    }else{
-        return false
-    }
-    
-    
-   
-        
-        
-        
-        
-//         mp1.forEach((value1,key1)=>{
-//             mp2.forEach((value2,key2)=>{
-                
-//         })
-//         }) 
-        
+     if (s.length !== t.length) return false;
 
+  const mapa = new Map();       // e:1,a:1 g;1,d;1
+  const mapb = new Map();       // a;1,e;1 d;1,g;1 
+
+  for (let i = 0; i < s.length; i++) {   //s = "egg", t = "add"
+      
+      
+      
+    if (mapa.has(s[i])) {
+      if (mapa.get(s[i]) !== t[i]) { //(g => s) d!=s
+        return false;
+      }
+    } else {
+      mapa.set(s[i], t[i]) // (e => a) (g =>d)
+    }
+
+      
+      
+    if (mapb.has(t[i])) {  //i=2   add
+      if (mapb.get(t[i]) !== s[i]) {  // (g!=g)
+        return false;
+      }
+    } else {
+          mapb.set(t[i], s[i])  //(a => e) (d => g)
+    }
+  }
+
+  return true
+      
+        
 }
