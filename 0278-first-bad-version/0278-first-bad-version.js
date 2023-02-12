@@ -18,20 +18,19 @@ var solution = function(isBadVersion) {
      * @return {integer} The first bad version
      */
     return function(n) {
-        let l=1
-        let h=n
-        let ans =-1
-                                        //[1,2,3,4,5]
-        while(l<=h){
-            let m= l + Math.floor((h-l)/2)
-            if(isBadVersion(m)){
-                   ans=m
-                   h=m-1
-               }else{
-                  l=m+1
-               }
-        }
-        return ans;
+        let low = 1;
+        let high = n
+        let ans = 0
         
+        while(low<=high){
+            let mid = low + Math.floor((high-low)/2)
+            if(isBadVersion(mid)){
+                ans = mid
+                high = mid - 1
+            }else{
+                low = mid + 1
+            }
+        }
+        return ans
     };
 };
