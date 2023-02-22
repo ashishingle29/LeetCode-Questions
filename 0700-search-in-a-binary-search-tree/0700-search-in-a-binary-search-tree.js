@@ -11,15 +11,29 @@
  * @param {number} val
  * @return {TreeNode}
  */
-var searchBST = function(root, val) {
-    let node = root;
+var searchBST = function(root, val) {                      
     
-    while(node){
-        if(node.val == val) return node
+    if(root == null || root.val == val){
+        return root
         
-        else if(val>node.val) node = node.right
-        
-        else if(val<node.val) node = node.left
+    }else if(root.val > val){  //7 > 4
+        return searchBST(root.left, val)
+    }else{
+        return searchBST(root.right, val)
     }
-    return null
+    
+
+//......Second Method..............    
+//     let node = root;
+    
+//     while(node){
+//         if(node.val == val) return node
+        
+//         else if(val>node.val) node = node.right
+        
+//         else if(val<node.val) node = node.left
+//     }
+//     return null
+    
+ 
 };
