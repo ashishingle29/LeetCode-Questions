@@ -2,26 +2,14 @@
  * @param {number} x
  * @return {number}
  */
-var reverse = function(str) {
-let nums = str.toString().split("")
-    let i=0
-    let j=nums.length-1
-    let temp
-
-    
-    if(nums[0]== "-"){
-            i++
-        }
-    while(i<j){
-        temp = nums[j]
-        nums[j]=nums[i]
-        nums[i]= temp
-            i++;
-            j--;
+var reverse = function(x) {
+     let result = 0;
+    while (x !== 0) {
+        result = result * 10 + x % 10;
+        x = parseInt(x / 10);
     }
-   let result = nums.join("")
-   if(result >= -2147483648 && result <= 2147483648 ){
-       return result
-   }
-    return 0
+    if (result > Math.pow(2, 31) - 1 || result < Math.pow(-2, 31)) {
+        return 0;
+    }
+    return result;
 };
