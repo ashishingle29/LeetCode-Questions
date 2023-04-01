@@ -73,9 +73,6 @@ class Solution{
             if(s[i]!=s[i+1]){
                 newstr.push(s[i])
             }
-            // if(s[i]==s[s.length-1]){
-            //      newstr.push(s[i])
-            // }
         }
         return newstr.join("")
     }
